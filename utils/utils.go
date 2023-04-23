@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -15,4 +16,14 @@ func GetNodeIDInt(nid string) int {
 
 func GetUniqueID(nodeID, num int64) int64 {
 	return (nodeID << 48) | num
+}
+
+func getBinary(num int64) string {
+	return fmt.Sprintf("%064b", num)
+}
+
+func GetTypeOkBody(prefix string) map[string]interface{} {
+	return map[string]interface{}{
+		"type": GenerateTypeOk(prefix),
+	}
 }
